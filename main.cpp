@@ -1,9 +1,10 @@
 #include <iostream>
+#include "artikal.h"
 
 using namespace std;
 
 int main()
 {
-    Artikal a;
+
     return 0;
 }

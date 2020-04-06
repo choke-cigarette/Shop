@@ -1,5 +1,21 @@
 #ifndef ARTIKAL_H_INCLUDED
 #define ARTIKAL_H_INCLUDED
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+
+class Slika{
+    private:
+        Slika *prosla, *sledeca;
+        FILE *fajl;
+    public:
+        Slika();
+        Slika(FILE &);
+        Slika(Slika &);
+        void dodajSliku(FILE &);
+        void izbrisiSliku();
+};
+
 
 class Artikal{
     private:
@@ -9,45 +25,83 @@ class Artikal{
         bool naStanju, besplatnaDostava;
         FILE *komentari;
     public:
-        float getCena();
-        float getOcena(); //  postavice je neki izmisljeni kupci
-        char* getModel();
-        char* getNazivArtikla();
-        short getAkcija();
-        void ispisiKomentare(); //  nece postojati komentari jer nema user interface-a
-        bool imaLiNaStanju();
-        bool imaLiBesplatnuDostavu();
+        Artikal();
+        Artikal(float, char*, char*, short, bool, bool);
+        Artikal(Artikal &);
+        float getCena()const;
+        float getOcena()const; //  postavice je neki izmisljeni kupci
+        char* getModel()const;
+        char* getNazivArtikla()const;
+        short getAkcija()const;
+        void ispisiKomentare()const; //  nece postojati komentari jer nema user interface-a
+        bool imaLiNaStanju()const;
+        bool imaLiBesplatnuDostavu()const;
         void setCena(float);
         void setAkcija(short);
         void setNaStanju(bool);
         void setBesplatnaDostava(bool);
 };
 
-float Artikal::getCena(){
+Artikal::Artikal(){
+    cena = 0;
+    ocena = 0;
+    model = nullptr;
+    nazivArtikla = nullptr;
+    akcija = 0;
+    naStanju = false;
+    besplatnaDostava = false;
+    komentari = nullptr;
+}
+
+Artikal::Artikal(float c, char *m, char *n, short a, bool s, bool d){
+    cena = c;
+    model = new char[strlen(m)];
+    nazivArtikla = new char[strlen(n)];
+    strcpy(model, m);
+    strcpy(nazivArtikla, n);
+    akcija = a;
+    naStanju = s;
+    besplatnaDostava = d;
+}
+
+Artikal::Artikal(Artikal &a){
+    cena = a.cena;
+    ocena = a.ocena;
+    model = new char[strlen(a.model)];
+    nazivArtikla = new char[strlen(a.nazivArtikla)];
+    strcpy(model, a.model);
+    strcpy(nazivArtikla, a.nazivArtikla);
+    akcija = a.akcija;
+    naStanju = a.naStanju;
+    besplatnaDostava = a.besplatnaDostava;
+    komentari = a.komentari;
+}
+
+float Artikal::getCena()const{
     return cena;
 }
 
-float Artikal::getOcena(){
+float Artikal::getOcena()const{
     return ocena;
 }
 
-char* Artikal::getModel(){
+char* Artikal::getModel()const{
     return model;
 }
 
-char* Artikal::getNazivArtikla(){
+char* Artikal::getNazivArtikla()const{
     return nazivArtikla;
 }
 
-short Artikal::getAkcija(){
+short Artikal::getAkcija()const{
     return akcija;
 }
 
-bool Artikal::imaLiNaStanju(){
+bool Artikal::imaLiNaStanju()const{
     return naStanju;
 }
 
-bool Artikal::imaLiBesplatnuDostavu(){
+bool Artikal::imaLiBesplatnuDostavu()const{
     return besplatnaDostava;
 }
 
