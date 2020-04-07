@@ -24,13 +24,13 @@ class Slika{
 };
 
 Slika::Slika(){
-    prosla = nullptr;
+    prosla = this;
     sledeca = nullptr;
     fajl = nullptr;
 }
 
 Slika::Slika(FILE *&f){
-    prosla = nullptr;
+    prosla = this;
     sledeca = nullptr;
     fajl = f;
 }
@@ -38,7 +38,6 @@ Slika::Slika(FILE *&f){
 Slika::Slika(Slika *&s){
     prosla = new Slika;
     sledeca = new Slika;
-    fajl = new
     prosla = s->prosla;
     sledeca = s->sledeca;
     fajl = s->fajl;
@@ -56,5 +55,42 @@ FILE* Slika::getFajl()const{
     return fajl;
 }
 
+void Slika::setProsla(Slika *&p){
+    prosla = p;
+}
+
+void Slika::setSledeca(Slika *&s){
+    sledeca = s;
+}
+
+void Slika::setFajl(FILE *&f){
+    fajl = f;
+}
+
+void Slika::dodajSliku(FILE *&f){
+    Slika *pok = this;
+    while(pok->sledeca != nullptr){
+        pok = pok->sledeca;
+    }
+    pok->sledeca = new Slika(f);
+    pok->sledeca->prosla = pok;
+    pok->sledeca->sledeca = nullptr;
+    this->prosla = pok->sledeca;
+}
+
+void Slika::izbrisiSliku(){
+    if(this->sledeca == nullptr){
+        delete this;
+        return;
+    }
+    Slika *pok = this;
+    while(pok->sledeca != nullptr){
+        pok = pok->sledeca;
+    }
+    pok = pok->prosla;
+    delete pok->sledeca;
+    pok->sledeca = nullptr;
+    this->prosla = pok;
+}
 
 #endif // SLIKA_H_INCLUDED
