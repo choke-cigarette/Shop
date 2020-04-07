@@ -3,19 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
-
-class Slika{
-    private:
-        Slika *prosla, *sledeca;
-        FILE *fajl;
-    public:
-        Slika();
-        Slika(FILE &);
-        Slika(Slika &);
-        void dodajSliku(FILE &);
-        void izbrisiSliku();
-};
-
+#include "slika.h"
 
 class Artikal{
     private:
