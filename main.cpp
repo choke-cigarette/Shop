@@ -1,10 +1,11 @@
 #include <iostream>
 #include "artikal.h"
-
 using namespace std;
 
 int main()
 {
-
-    return 0;
+    FILE *f = nullptr;
+    Artikal a(0, "ime", "imee", 0, true, true, f);
+    Artikal b(a);
+    cout << b.getSlika()->getFajl();
 }
