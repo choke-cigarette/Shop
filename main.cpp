@@ -1,5 +1,5 @@
 #include <iostream>
-#include "artikal.h"
+#include "racunar.h"
 using namespace std;
 
 int main()

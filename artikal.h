@@ -1,5 +1,6 @@
 #ifndef ARTIKAL_H_INCLUDED
 #define ARTIKAL_H_INCLUDED
+using namespace std;
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
@@ -26,10 +27,12 @@ class Artikal{
         void ispisiKomentare()const; //  nece postojati komentari jer nema user interface-a
         bool imaLiNaStanju()const;
         bool imaLiBesplatnuDostavu()const;
-        void setCena(float);
-        void setAkcija(short);
-        void setNaStanju(bool);
-        void setBesplatnaDostava(bool);
+        void setModel(const char*);
+        void setNaziv(const char*);
+        void setCena(const float);
+        void setAkcija(const short);
+        void setNaStanju(const bool);
+        void setBesplatnaDostava(const bool);
 };
 
 Artikal::Artikal() : slika(){
@@ -46,6 +49,7 @@ Artikal::Artikal() : slika(){
 Artikal::Artikal(float c, char *m, char *n, short a, bool s, bool d, FILE *&f){
     slika = new Slika(f);   // nije radilo kao kompozicija : slika(f)
     cena = c;
+    ocena = 0;
     model = new char[strlen(m)];
     nazivArtikla = new char[strlen(n)];
     strcpy(model, m);
@@ -53,6 +57,7 @@ Artikal::Artikal(float c, char *m, char *n, short a, bool s, bool d, FILE *&f){
     akcija = a;
     naStanju = s;
     besplatnaDostava = d;
+    komentari = nullptr;
 }
 
 Artikal::Artikal(Artikal &a) : slika(a.slika){
@@ -100,19 +105,27 @@ bool Artikal::imaLiBesplatnuDostavu()const{
     return besplatnaDostava;
 }
 
-void Artikal::setCena(float c){
+void Artikal::setCena(const float c){
     cena = c;
 }
 
-void Artikal::setAkcija(short a){
+void Artikal::setModel(const char *m){
+    strcpy(model, m);
+}
+
+void Artikal::setNaziv(const char *n){
+    strcpy(nazivArtikla, n);
+}
+
+void Artikal::setAkcija(const short a){
     akcija = a;
 }
 
-void Artikal::setNaStanju(bool s){
+void Artikal::setNaStanju(const bool s){
     naStanju = s;
 }
 
-void Artikal::setBesplatnaDostava(bool d){
+void Artikal::setBesplatnaDostava(const bool d){
     besplatnaDostava = d;
 }
 

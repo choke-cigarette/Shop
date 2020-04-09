@@ -1,6 +1,6 @@
 #ifndef SLIKA_H_INCLUDED
 #define SLIKA_H_INCLUDED
-
+using namespace std;
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
