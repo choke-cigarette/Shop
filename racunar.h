@@ -16,8 +16,8 @@ class Racunar : public Artikal{
         bool optickiUredjaj;
     public:
         Racunar();
-        Racunar(Memorija, short, short, char*, char*, char*, char*, char*, bool);
-        Racunar(Racunar &r);
+        Racunar(Memorija, short, short, char*, char*, char*, char*, char*, bool, float, char*, char*, short, bool, bool, FILE *);
+        Racunar(Racunar &);
         Memorija getMemorija()const;
         short getGB()const;
         short getRAM()const;
@@ -36,6 +36,42 @@ class Racunar : public Artikal{
         void setBoja(const char*);
         void setOpticki(const bool);
 };
+
+Racunar::Racunar() : Artikal(){
+    memorija = HDD;
+    RAM = 0;
+    memorija_GB = 0;
+    graficka = nullptr;
+    procesor = nullptr;
+    konektori = nullptr;
+    OS = nullptr;
+    boja = nullptr;
+    optickiUredjaj = false;
+}
+
+Racunar::Racunar(Memorija mem, short r, short gb, char* g, char* p, char* k, char* os, char* b, bool opt, float c, char *m, char *n, short a, bool s, bool d, FILE *f) : Artikal(c, m, b, a, s, d, f){
+    memorija = mem;
+    RAM = r;
+    memorija_GB = gb;
+    graficka = g;
+    procesor = p;
+    konektori = k;
+    OS = os;
+    boja = b;
+    optickiUredjaj = opt;
+}
+
+Racunar::Racunar(Racunar &r) : Artikal(r.getCena(), r.getModel(), r.getNazivArtikla(), r.getAkcija(), r.imaLiNaStanju(), r.imaLiBesplatnuDostavu(), r.getSlika()->getFajl()){
+    memorija = r.memorija;
+    RAM = r.RAM;
+    memorija_GB = r.memorija_GB;
+    graficka = r.graficka;
+    procesor = r.procesor;
+    konektori = r.konektori;
+    OS = r.OS;
+    boja = r.boja;
+    optickiUredjaj = r.optickiUredjaj;
+}
 
 Memorija Racunar::getMemorija()const{
     return memorija;

@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    FILE *f = nullptr;
-    Artikal a(0, "ime", "imee", 0, true, true, f);
-    Artikal b(a);
+    FILE *file = nullptr;
+    Racunar r(HDD, 0, 0, "a", "a", "a", "a", "a", true, 0, "a", "a", 0, true, true, file);
+    Racunar b(r);
     cout << b.getSlika()->getFajl();
 }

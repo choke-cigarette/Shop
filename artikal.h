@@ -16,7 +16,7 @@ class Artikal{
         FILE *komentari;
     public:
         Artikal();
-        Artikal(float, char*, char*, short, bool, bool, FILE *&);
+        Artikal(float, char*, char*, short, bool, bool, FILE *);
         Artikal(Artikal &);
         Slika* getSlika()const;
         float getCena()const;
@@ -35,7 +35,8 @@ class Artikal{
         void setBesplatnaDostava(const bool);
 };
 
-Artikal::Artikal() : slika(){
+Artikal::Artikal(){
+    slika = new Slika;
     cena = 0;
     ocena = 0;
     model = nullptr;
@@ -46,7 +47,7 @@ Artikal::Artikal() : slika(){
     komentari = nullptr;
 }
 
-Artikal::Artikal(float c, char *m, char *n, short a, bool s, bool d, FILE *&f){
+Artikal::Artikal(float c, char *m, char *n, short a, bool s, bool d, FILE *f){
     slika = new Slika(f);   // nije radilo kao kompozicija : slika(f)
     cena = c;
     ocena = 0;
