@@ -35,6 +35,8 @@ class Racunar : public Artikal{
         void setOS(const char*);
         void setBoja(const char*);
         void setOpticki(const bool);
+        virtual void ispisiInfo() = 0;
+        virtual bool gamingApproved() = 0;
 };
 
 Racunar::Racunar() : Artikal(){
@@ -59,18 +61,6 @@ Racunar::Racunar(Memorija mem, short r, short gb, char* g, char* p, char* k, cha
     OS = os;
     boja = b;
     optickiUredjaj = opt;
-}
-
-Racunar::Racunar(Racunar &r) : Artikal(r.getCena(), r.getModel(), r.getNazivArtikla(), r.getAkcija(), r.imaLiNaStanju(), r.imaLiBesplatnuDostavu(), r.getSlika()->getFajl()){
-    memorija = r.memorija;
-    RAM = r.RAM;
-    memorija_GB = r.memorija_GB;
-    graficka = r.graficka;
-    procesor = r.procesor;
-    konektori = r.konektori;
-    OS = r.OS;
-    boja = r.boja;
-    optickiUredjaj = r.optickiUredjaj;
 }
 
 Memorija Racunar::getMemorija()const{
