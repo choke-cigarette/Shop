@@ -177,15 +177,15 @@ void Graficka::setHladjenje(TipHladjenja a){
 }
 
 void Graficka::setInterfejs(char * a){
-    interfejs = a;
+    strcpy(interfejs, a);
 }
 
 void Graficka::setGPU(char * a){
-    GPU = a;
+    strcpy(GPU, a);
 }
 
 void Graficka::setKonektor(char * a){
-    konektor = a;
+    strcpy(konektor, a);
 }
 
 void Graficka::setKolicinaMemorije(short a){
