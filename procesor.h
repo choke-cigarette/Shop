@@ -7,7 +7,7 @@ using namespace std;
 #include "artikal.h"
 
 
-class Procesor : Artikal{
+class Procesor : public Artikal{
     private:
         char *podnozje, *l2Kes, *integrisanaGraficka;
         short brojJezgara, threads, tehnologijaIzrade, TDP, l3Kes;
@@ -53,9 +53,9 @@ Procesor::Procesor() : Artikal(){
 
 Procesor::Procesor(char* p, char* l2, char* ig, short j, short th, short ti, short tdp, short l3, float rf,
 float tf, float c, char* pa, char* na, short a, bool s, bool d, FILE *f) : Artikal(c, pa, na, a, s, d, f){
-    podnozje = p;
-    l2Kes = l2;
-    integrisanaGraficka = ig;
+    strcpy(podnozje, p);
+    strcpy(l2Kes, l2);
+    strcpy(integrisanaGraficka, ig);
     brojJezgara = j;
     threads = th;
     tehnologijaIzrade = ti;
@@ -66,9 +66,9 @@ float tf, float c, char* pa, char* na, short a, bool s, bool d, FILE *f) : Artik
 }
 
 Procesor(Procesor &p) : Artikal(p.getCena(), p.getProizvodjac(), p.getNazivArtikla(), p.getAkcija(), p.imaLiNaStanju(), p.imaLiBesplatnuDostavu(), p.getSlika()->getFajl()){
-    podnozje = p.podnozje;
-    l2Kes = p.l2Kes;
-    integrisanaGraficka = p.integrisanaGraficka;
+    strcpy(podnozje, p.podnozje);
+    strcpy(l2Kes, p.l2Kes);
+    strcpy(integrisanaGraficka, p.integrisanaGraficka);
     brojJezgara = p.brojJezgara;
     threads = p.threads;
     tehnologijaIzrade = p.tehnologijaIzrade;

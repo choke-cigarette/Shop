@@ -71,13 +71,13 @@ Graficka::Graficka() : Artikal(){
 }
 
 Graficka::Graficka(GrafickaMemorija g, TipHladjenja h, char *i, char *gpu, char *k, short m, short mag, short bm, short bg, short s,
-    short v, short d, short hdmi, short dis, short n, float c, char *ma, char *na, short a, bool sa, bool da, FILE *f)
-  : Artikal(c, ma, na, a, sa, da, f){
+        short v, short d, short hdmi, short dis, short n, float c, char *ma, char *na, short a, bool sa, bool da, FILE *f)
+        : Artikal(c, ma, na, a, sa, da, f){
     tipMemorije = g;
     hladjenje = h;
-    interfejs = i;
-    GPU = gpu;
-    konektor = k;
+    strcpy(interfejs, i);
+    strcpy(GPU, gpu);
+    strcpy(konektor, k);
     kolicinaMemorije = m;
     magistrala = mag;
     brzinaMemorije = bm;
@@ -93,9 +93,9 @@ Graficka::Graficka(GrafickaMemorija g, TipHladjenja h, char *i, char *gpu, char 
 Graficka::Graficka(Graficka &g) : Artikal(g.getCena(), g.getProizvodjac(), g.getNazivArtikla(), g.getAkcija(), g.imaLiNaStanju(), g.imaLiBesplatnuDostavu(), g.getSlika()->getFajl()){
     tipMemorije = g.tipMemorije;
     hladjenje = g.hladjenje;
-    interfejs = g.interfejs;
-    GPU = g.GPU;
-    konektor = g.konektor;
+    strcpy(interfejs, g.interfejs);
+    strcpy(GPU, g.GPU);
+    strcpy(konektor, g.konektor);
     kolicinaMemorije = g.kolicinaMemorije;
     magistrala = g.magistrala;
     brzinaMemorije = g.brzinaMemorije;

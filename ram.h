@@ -8,7 +8,7 @@ using namespace std;
 
 enum TipRAMa{_DDR1, _DDR2, _DDR3, _DDR4};
 
-class RAM : Artikal{
+class RAM : public Artikal{
     private:
         TipRAMa memorija;
         short kapacitet, maksimalnaFrekvencija, latencija;

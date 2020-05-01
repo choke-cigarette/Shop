@@ -51,15 +51,16 @@ Racunar::Racunar() : Artikal(){
     optickiUredjaj = false;
 }
 
-Racunar::Racunar(Memorija mem, short r, short gb, char* g, char* p, char* k, char* os, char* b, bool opt, float c, char *m, char *n, short a, bool s, bool d, FILE *f) : Artikal(c, m, b, a, s, d, f){
+Racunar::Racunar(Memorija mem, short r, short gb, char* g, char* p, char* k, char* os, char* b, bool opt,
+                  float c, char *m, char *n, short a, bool s, bool d, FILE *f) : Artikal(c, m, b, a, s, d, f){
     memorija = mem;
     RAM = r;
     memorija_GB = gb;
-    graficka = g;
-    procesor = p;
-    konektori = k;
-    OS = os;
-    boja = b;
+    strcpy(graficka, g);
+    strcpy(procesor, p);
+    strcpy(konektori, k);
+    strcpy(OS, os);
+    strcpy(boja, b);
     optickiUredjaj = opt;
 }
 
