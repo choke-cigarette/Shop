@@ -6,6 +6,15 @@ using namespace std;
 #include <math.h>
 #include <cstring>
 #include "slika.h"
+#include "graficka.h"
+#include "procesor.h"
+#include "racunar.h"
+#include "ram.h"
+#include "televizor.h"
+#include "maticna.h"
+#include "telefon.h"
+
+
 
 class Artikal{
     private:
