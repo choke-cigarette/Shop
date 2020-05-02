@@ -96,4 +96,161 @@ Maticna::Maticna(FormatPloce fp, char* p, char* cs, char* pp, char* pm, char* m,
     strcpy(ostalo, o);
 }
 
+Maticna::Maticna(Maticna &m) : Artikal(m.getCena(), m.getProizvodjac(), m.getNazivArtikla(), m.getAkcija(), m.imaLiNaStanju(), m.imaLiBesplatnuDostavu(), m.getSlika()->getFajl()){
+    formatPloce = m.formatPloce;
+    strcpy(podnozje, m.podnozje);
+    strcpy(cipset, m.cipset);
+    strcpy(podrzaniProcesori, m.podrzaniProcesori);
+    strcpy(podrzanaMemorija, m.podrzanaMemorija);
+    strcpy(memorija, m.memorija);
+    strcpy(integrisanaGrafickaKarta, m.integrisanaGrafickaKarta);
+    strcpy(multiGPUPodrska, m.multiGPUPodrska);
+    strcpy(slotoviZaProsirenje, m.slotoviZaProsirenje);
+    strcpy(storage, m.storage);
+    strcpy(mreznaKarta, m.mreznaKarta);
+    strcpy(zvucnaKarta, m.zvucnaKarta);
+    strcpy(USB, m.USB);
+    strcpy(konektori, m.konektori);
+    strcpy(interniKonektori, m.interniKonektori);
+    strcpy(BIOS, m.BIOS);
+    strcpy(ostalo, m.ostalo);
+}
+
+void Maticna::setFormatPloce(FormatPloce p){
+    formatPloce = p;
+}
+
+void Maticna::setPodnozje(char* a){
+    strcpy(podnozje, a);
+}
+
+void Maticna::setCipset(char* a){
+    strcpy(cipset, a);
+}
+
+void Maticna::setPodrzaniProcesori(char* a){
+    strcpy(podrzaniProcesori, a);
+}
+
+void Maticna::setPodrzanaMemorija(char* a){
+    strcpy(podrzanaMemorija, a);
+}
+
+void Maticna::setMemorija(char* a){
+    strcpy(memorija, a);
+}
+
+void Maticna::setIntegrisanaGraficka(char* a){
+    strcpy(integrisanaGrafickaKarta, a);
+}
+
+void Maticna::setMultiGPU(char* a){
+    strcpy(multiGPUPodrska, a);
+}
+
+void Maticna::setSlotoviZaProsirenje(char* a){
+    strcpy(slotoviZaProsirenje, a);
+}
+
+void Maticna::setStorage(char* a){
+    strcpy(storage, a);
+}
+
+void Maticna::setMreznaKarta(char* a){
+    strcpy(mreznaKarta, a);
+}
+
+void Maticna::setZvucnaKarta(char* a){
+    strcpy(zvucnaKarta, a);
+}
+
+void Maticna::setUSB(char* a){
+    strcpy(USB, a);
+}
+
+void Maticna::setKonektori(char* a){
+    strcpy(konektori, a);
+}
+
+void Maticna::setInterniKonektori(char* a){
+    strcpy(interniKonektori, a);
+}
+
+void Maticna::setBIOS(char* a){
+    strcpy(BIOS, a);
+}
+
+void Maticna::setOstalo(char* a){
+    strcpy(ostalo, a);
+}
+
+FormatPloce Maticna::getFormatPloce()const{
+    return formatPloce;
+}
+
+char* Maticna::getPodnozje()const{
+    return podnozje;
+}
+
+char* Maticna::getCipset()const{
+    return cipset;
+}
+
+char* Maticna::getPodrzaniProcesori()const{
+    return podrzaniProcesori;
+}
+
+char* Maticna::getPodrzanaMemorija()const{
+    return podrzanaMemorija;
+}
+
+char* Maticna::getMemorija()const{
+    return memorija;
+}
+
+char* Maticna::getIntegrisanaGraficka()const{
+    return integrisanaGrafickaKarta;
+}
+
+char* Maticna::getMultiGPU()const{
+    return multiGPUPodrska;
+}
+
+char* Maticna::getSlotoviZaProsirenje()const{
+    return slotoviZaProsirenje;
+}
+
+char* Maticna::getStorage()const{
+    return storage;
+}
+
+char* Maticna::getMreznaKarta()const{
+    return mreznaKarta;
+}
+
+char* Maticna::getZvucnaKarta()const{
+    return zvucnaKarta;
+}
+
+char* Maticna::getUSB()const{
+    return USB;
+}
+
+char* Maticna::getKonektori()const{
+    return konektori;
+}
+
+char* Maticna::getInterniKonektori()const{
+    return interniKonektori;
+}
+
+char* Maticna::getBIOS()const{
+    return BIOS;
+}
+
+char* Maticna::getOstalo()const{
+    return ostalo;
+}
+
+
 #endif // MATICNA_H_INCLUDED
