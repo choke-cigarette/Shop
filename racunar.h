@@ -35,7 +35,6 @@ class Racunar : public Artikal{
         void setOS(const char*);
         void setBoja(const char*);
         void setOpticki(const bool);
-        virtual void ispisiInfo() = 0;
         virtual bool gamingApproved() = 0;
 };
 

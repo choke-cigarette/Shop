@@ -8,7 +8,6 @@ using namespace std;
 #include "slika.h"
 
 
-
 class Artikal{
     private:
         Slika *slika;
@@ -38,7 +37,6 @@ class Artikal{
         void setBesplatnaDostava(const bool);
         bool kupi();
         double dodajOcenu(double);
-        virtual void ispisiInfo() = 0;
 };
 
 Artikal::Artikal(){

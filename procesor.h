@@ -15,7 +15,7 @@ class Procesor : public Artikal{
     public:
         Procesor();
         Procesor(char*, char*, char*, short, short, short, short, short, float, float, float, char*, char*, short, bool, bool, FILE *);
-        Procesor(Procesor &p);
+        Procesor(Procesor &);
         char* getPodnozje()const;
         char* getL2Kes()const;
         char* getIntegrisanaGraficka()const;
@@ -65,7 +65,7 @@ float tf, float c, char* pa, char* na, short a, bool s, bool d, FILE *f) : Artik
     turboFrekvencija = tf;
 }
 
-Procesor(Procesor &p) : Artikal(p.getCena(), p.getProizvodjac(), p.getNazivArtikla(), p.getAkcija(), p.imaLiNaStanju(), p.imaLiBesplatnuDostavu(), p.getSlika()->getFajl()){
+Procesor::Procesor(Procesor &p) : Artikal(p.getCena(), p.getProizvodjac(), p.getNazivArtikla(), p.getAkcija(), p.imaLiNaStanju(), p.imaLiBesplatnuDostavu(), p.getSlika()->getFajl()){
     strcpy(podnozje, p.podnozje);
     strcpy(l2Kes, p.l2Kes);
     strcpy(integrisanaGraficka, p.integrisanaGraficka);
