@@ -15,7 +15,7 @@ class RAM : public Artikal{
         float voltaza;
     public:
         RAM();
-        RAM(TipRAMa, short, short, short, float, float, char*, char*, short, bool, bool, FILE *);
+        RAM(TipRAMa, short, short, short, float, float, string, string, short, bool, bool, FILE *);
         RAM(RAM &);
         TipRAMa getMemorija()const;
         short getKapacitet()const;
@@ -37,7 +37,7 @@ RAM::RAM() : Artikal(){
     voltaza = 0;
 }
 
-RAM::RAM(TipRAMa m, short k, short fr, short l, float v, float c, char *ma, char *na, short a, bool sa, bool da, FILE *f) : Artikal(c, ma, na, a, sa, da, f){
+RAM::RAM(TipRAMa m, short k, short fr, short l, float v, float c, string ma, string na, short a, bool sa, bool da, FILE *f) : Artikal(c, ma, na, a, sa, da, f){
     memorija = m;
     kapacitet = k;
     maksimalnaFrekvencija = fr;

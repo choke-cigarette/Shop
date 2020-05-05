@@ -4,8 +4,9 @@ using namespace std;
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
+#include "artikal.h"
 
-class Telefon{
+class Telefon : public Artikal{
     private:
 
     public:

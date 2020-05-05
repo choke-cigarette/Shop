@@ -9,16 +9,16 @@ using namespace std;
 
 class Procesor : public Artikal{
     private:
-        char *podnozje, *l2Kes, *integrisanaGraficka;
+        string podnozje, l2Kes, integrisanaGraficka;
         short brojJezgara, threads, tehnologijaIzrade, TDP, l3Kes;
         float radnaFrekvencija, turboFrekvencija;
     public:
         Procesor();
-        Procesor(char*, char*, char*, short, short, short, short, short, float, float, float, char*, char*, short, bool, bool, FILE *);
+        Procesor(string, string, string, short, short, short, short, short, float, float, float, string, string, short, bool, bool, FILE *);
         Procesor(Procesor &);
-        char* getPodnozje()const;
-        char* getL2Kes()const;
-        char* getIntegrisanaGraficka()const;
+        string getPodnozje()const;
+        string getL2Kes()const;
+        string getIntegrisanaGraficka()const;
         short getBrojJezgara()const;
         short getThreads()const;
         short getTehnologijaIzrade()const;
@@ -26,9 +26,9 @@ class Procesor : public Artikal{
         short getL3Kes()const;
         float getRadnaFrekvencija()const;
         float getTurboFrekvencija()const;
-        void setPodnozje(char*);
-        void setL2Kes(char*);
-        void setIntegrisanaGraficka(char*);
+        void setPodnozje(string);
+        void setL2Kes(string);
+        void setIntegrisanaGraficka(string);
         void setBrojJezgara(short);
         void setThreads(short);
         void setTehnologijaIzrade(short);
@@ -39,9 +39,9 @@ class Procesor : public Artikal{
 };
 
 Procesor::Procesor() : Artikal(){
-    podnozje = nullptr;
-    l2Kes = nullptr;
-    integrisanaGraficka = nullptr;
+    podnozje = "";
+    l2Kes = "";
+    integrisanaGraficka = "";
     brojJezgara = 0;
     threads = 0;
     tehnologijaIzrade = 0;
@@ -51,11 +51,11 @@ Procesor::Procesor() : Artikal(){
     turboFrekvencija = 0;
 }
 
-Procesor::Procesor(char* p, char* l2, char* ig, short j, short th, short ti, short tdp, short l3, float rf,
-float tf, float c, char* pa, char* na, short a, bool s, bool d, FILE *f) : Artikal(c, pa, na, a, s, d, f){
-    strcpy(podnozje, p);
-    strcpy(l2Kes, l2);
-    strcpy(integrisanaGraficka, ig);
+Procesor::Procesor(string p, string l2, string ig, short j, short th, short ti, short tdp, short l3, float rf,
+float tf, float c, string pa, string na, short a, bool s, bool d, FILE *f) : Artikal(c, pa, na, a, s, d, f){
+    podnozje = p;
+    l2Kes = l2;
+    integrisanaGraficka = ig;
     brojJezgara = j;
     threads = th;
     tehnologijaIzrade = ti;
@@ -66,9 +66,9 @@ float tf, float c, char* pa, char* na, short a, bool s, bool d, FILE *f) : Artik
 }
 
 Procesor::Procesor(Procesor &p) : Artikal(p.getCena(), p.getProizvodjac(), p.getNazivArtikla(), p.getAkcija(), p.imaLiNaStanju(), p.imaLiBesplatnuDostavu(), p.getSlika()->getFajl()){
-    strcpy(podnozje, p.podnozje);
-    strcpy(l2Kes, p.l2Kes);
-    strcpy(integrisanaGraficka, p.integrisanaGraficka);
+    podnozje = p.podnozje;
+    l2Kes = p.l2Kes;
+    integrisanaGraficka = p.integrisanaGraficka;
     brojJezgara = p.brojJezgara;
     threads = p.threads;
     tehnologijaIzrade = p.tehnologijaIzrade;
@@ -78,15 +78,15 @@ Procesor::Procesor(Procesor &p) : Artikal(p.getCena(), p.getProizvodjac(), p.get
     turboFrekvencija = p.turboFrekvencija;
 }
 
-char* Procesor::getPodnozje()const{
+string Procesor::getPodnozje()const{
     return podnozje;
 }
 
-char* Procesor::getL2Kes()const{
+string Procesor::getL2Kes()const{
     return l2Kes;
 }
 
-char* Procesor::getIntegrisanaGraficka()const{
+string Procesor::getIntegrisanaGraficka()const{
     return integrisanaGraficka;
 }
 
@@ -118,16 +118,16 @@ float Procesor::getTurboFrekvencija()const{
     return turboFrekvencija;
 }
 
-void Procesor::setPodnozje(char* p){
-    strcpy(podnozje, p);
+void Procesor::setPodnozje(string p){
+    podnozje = p;
 }
 
-void Procesor::setL2Kes(char* l2){
-    strcpy(l2Kes, l2);
+void Procesor::setL2Kes(string l2){
+    l2Kes = l2;
 }
 
-void Procesor::setIntegrisanaGraficka(char* g){
-    strcpy(integrisanaGraficka, g);
+void Procesor::setIntegrisanaGraficka(string g){
+    integrisanaGraficka = g;
 }
 
 void Procesor::setBrojJezgara(short j){

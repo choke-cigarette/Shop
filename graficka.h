@@ -14,17 +14,17 @@ class Graficka : public Artikal{
     private:
         GrafickaMemorija tipMemorije;
         TipHladjenja hladjenje;
-        char *interfejs, *GPU, *konektor;
+        string interfejs, GPU, konektor;
         short kolicinaMemorije, magistrala, brzinaMemorije, brzinaGPU, streamProcesori, VGA, DVI, HDMI, displayPort, minimalnoNapajanje;
     public:
         Graficka();
-        Graficka(GrafickaMemorija, TipHladjenja, char *, char*, char*, short, short, short, short, short, short, short, short, short, short, float, char*, char*, short, bool, bool, FILE*);
+        Graficka(GrafickaMemorija, TipHladjenja, string, string, string, short, short, short, short, short, short, short, short, short, short, float, string, string, short, bool, bool, FILE*);
         Graficka(Graficka &);
         GrafickaMemorija getTipMemorije()const;
         TipHladjenja getHladjenje()const;
-        char* getInterfejs()const;
-        char* getGPU()const;
-        char* getKonektor()const;
+        string getInterfejs()const;
+        string getGPU()const;
+        string getKonektor()const;
         short getKolicinaMemorije()const;
         short getMagistrala()const;
         short getBrzinaMemorije()const;
@@ -37,9 +37,9 @@ class Graficka : public Artikal{
         short getMinimalnoNapajanje()const;
         void setTipMemorije(GrafickaMemorija);
         void setHladjenje(TipHladjenja);
-        void setInterfejs(char *);
-        void setGPU(char *);
-        void setKonektor(char *);
+        void setInterfejs(string);
+        void setGPU(string);
+        void setKonektor(string);
         void setKolicinaMemorije(short);
         void setMagistrala(short);
         void setBrzinaMemorije(short);
@@ -55,9 +55,9 @@ class Graficka : public Artikal{
 Graficka::Graficka() : Artikal(){
     tipMemorije = DDR2;
     hladjenje = AKTIVNO;
-    interfejs = nullptr;
-    GPU = nullptr;
-    konektor = nullptr;
+    interfejs = "";
+    GPU = "";
+    konektor = "";
     kolicinaMemorije = 0;
     magistrala = 0;
     brzinaMemorije = 0;
@@ -70,14 +70,14 @@ Graficka::Graficka() : Artikal(){
     minimalnoNapajanje = 0;
 }
 
-Graficka::Graficka(GrafickaMemorija g, TipHladjenja h, char *i, char *gpu, char *k, short m, short mag, short bm, short bg, short s,
-        short v, short d, short hdmi, short dis, short n, float c, char *ma, char *na, short a, bool sa, bool da, FILE *f)
+Graficka::Graficka(GrafickaMemorija g, TipHladjenja h, string i, string gpu, string k, short m, short mag, short bm, short bg, short s,
+        short v, short d, short hdmi, short dis, short n, float c, string ma, string na, short a, bool sa, bool da, FILE *f)
         : Artikal(c, ma, na, a, sa, da, f){
     tipMemorije = g;
     hladjenje = h;
-    strcpy(interfejs, i);
-    strcpy(GPU, gpu);
-    strcpy(konektor, k);
+    interfejs = i;
+    GPU = gpu;
+    konektor = k;
     kolicinaMemorije = m;
     magistrala = mag;
     brzinaMemorije = bm;
@@ -93,9 +93,9 @@ Graficka::Graficka(GrafickaMemorija g, TipHladjenja h, char *i, char *gpu, char 
 Graficka::Graficka(Graficka &g) : Artikal(g.getCena(), g.getProizvodjac(), g.getNazivArtikla(), g.getAkcija(), g.imaLiNaStanju(), g.imaLiBesplatnuDostavu(), g.getSlika()->getFajl()){
     tipMemorije = g.tipMemorije;
     hladjenje = g.hladjenje;
-    strcpy(interfejs, g.interfejs);
-    strcpy(GPU, g.GPU);
-    strcpy(konektor, g.konektor);
+    interfejs = g.interfejs;
+    GPU = g.GPU;
+    konektor = g.konektor;
     kolicinaMemorije = g.kolicinaMemorije;
     magistrala = g.magistrala;
     brzinaMemorije = g.brzinaMemorije;
@@ -116,15 +116,15 @@ TipHladjenja Graficka::getHladjenje()const{
     return hladjenje;
 }
 
-char* Graficka::getInterfejs()const{
+string Graficka::getInterfejs()const{
     return interfejs;
 }
 
-char* Graficka::getGPU()const{
+string Graficka::getGPU()const{
     return GPU;
 }
 
-char* Graficka::getKonektor()const{
+string Graficka::getKonektor()const{
     return konektor;
 }
 
@@ -176,16 +176,16 @@ void Graficka::setHladjenje(TipHladjenja a){
     hladjenje = a;
 }
 
-void Graficka::setInterfejs(char * a){
-    strcpy(interfejs, a);
+void Graficka::setInterfejs(string a){
+    interfejs = a;
 }
 
-void Graficka::setGPU(char * a){
-    strcpy(GPU, a);
+void Graficka::setGPU(string a){
+    GPU = a;
 }
 
-void Graficka::setKonektor(char * a){
-    strcpy(konektor, a);
+void Graficka::setKonektor(string a){
+    konektor = a;
 }
 
 void Graficka::setKolicinaMemorije(short a){

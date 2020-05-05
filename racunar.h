@@ -5,126 +5,116 @@ using namespace std;
 #include <cstdlib>
 #include <cstring>
 #include "artikal.h"
+#include "ram.h"
+#include "hdd.h"
+#include "ssd.h"
+#include "maticna.h"
+#include "graficka.h"
+#include "procesor.h"
 
-enum Memorija{HDD, SSD};
 
 class Racunar : public Artikal{
     private:
-        Memorija memorija;
-        short RAM, memorija_GB;
-        char *graficka, *procesor, *konektori, *OS, *boja;
+        RAM ram;
+        HDD hdd;
+        SSD ssd;
+        Maticna maticna;
+        Graficka gpu;
+        Procesor cpu;
+        string OS;
         bool optickiUredjaj;
     public:
         Racunar();
-        Racunar(Memorija, short, short, char*, char*, char*, char*, char*, bool, float, char*, char*, short, bool, bool, FILE *);
-        Racunar(Racunar &);
-        Memorija getMemorija()const;
-        short getGB()const;
-        short getRAM()const;
-        char* getGraficka()const;
-        char* getProcesor()const;
-        char* getKonektori()const;
-        char* getOS()const;
-        char* getBoja()const;
+        Racunar(RAM, HDD, SSD, Maticna, Graficka, Procesor, string, bool, float, string, string, short, bool, bool, FILE*);
+        RAM getRAM()const;
+        HDD getHDD()const;
+        SSD getSSD()const;
+        Maticna getMaticna()const;
+        Graficka getGraficka()const;
+        Procesor getProcesor()const;
+        string getOS()const;
         bool daLiImaOptickiUredjaj()const;
-        void setMemorija(const Memorija);
-        void setGB(const short);
-        void setRAM(const short);
-        void setProcesor(const char*);
-        void setKonektori(const char*);
-        void setOS(const char*);
-        void setBoja(const char*);
+        void setRAM(const RAM);
+        void setHDD(const HDD);
+        void setSSD(const SSD);
+        void setMaticna(const Maticna);
+        void setGPU(const Graficka);
+        void setCPU(const Procesor);
+        void setOS(const string);
         void setOpticki(const bool);
         virtual bool gamingApproved() = 0;
 };
 
-Racunar::Racunar() : Artikal(){
-    memorija = HDD;
-    RAM = 0;
-    memorija_GB = 0;
-    graficka = nullptr;
-    procesor = nullptr;
-    konektori = nullptr;
-    OS = nullptr;
-    boja = nullptr;
+Racunar::Racunar() : Artikal(), ram(), hdd(), ssd(), maticna(), gpu(), cpu(){
+    OS = "";
     optickiUredjaj = false;
 }
 
-Racunar::Racunar(Memorija mem, short r, short gb, char* g, char* p, char* k, char* os, char* b, bool opt,
-                  float c, char *m, char *n, short a, bool s, bool d, FILE *f) : Artikal(c, m, b, a, s, d, f){
-    memorija = mem;
-    RAM = r;
-    memorija_GB = gb;
-    strcpy(graficka, g);
-    strcpy(procesor, p);
-    strcpy(konektori, k);
-    strcpy(OS, os);
-    strcpy(boja, b);
+Racunar::Racunar(RAM r, HDD h, SSD ss, Maticna ma, Graficka g, Procesor p, string os, bool opt,
+float c, string m, string n, short a, bool s, bool d, FILE *f)
+: Artikal(c, m, n, a, s, d, f), ram(r), hdd(h), ssd(ss), maticna(ma), gpu(g), cpu(p){
+    OS = os;
     optickiUredjaj = opt;
 }
 
-Memorija Racunar::getMemorija()const{
-    return memorija;
+RAM Racunar::getRAM()const{
+    return ram;
 }
 
-short Racunar::getGB()const{
-    return memorija_GB;
+HDD Racunar::getHDD()const{
+    return hdd;
 }
 
-short Racunar::getRAM()const{
-    return RAM;
+SSD Racunar::getSSD()const{
+    return ssd;
 }
 
-char* Racunar::getGraficka()const{
-    return graficka;
+Maticna Racunar::getMaticna()const{
+    return maticna;
 }
 
-char* Racunar::getProcesor()const{
-    return procesor;
+Graficka Racunar::getGraficka()const{
+    return gpu;
 }
 
-char* Racunar::getKonektori()const{
-    return konektori;
+Procesor Racunar::getProcesor()const{
+    return cpu;
 }
 
-char* Racunar::getOS()const{
+string Racunar::getOS()const{
     return OS;
-}
-
-char* Racunar::getBoja()const{
-    return boja;
 }
 
 bool Racunar::daLiImaOptickiUredjaj()const{
     return optickiUredjaj;
 }
 
-void Racunar::setMemorija(const Memorija m){
-    memorija = m;
+void Racunar::setRAM(const RAM r){
+
 }
 
-void Racunar::setGB(const short gb){
-    memorija_GB = gb;
+void Racunar::setHDD(const HDD h){
+
 }
 
-void Racunar::setRAM(const short r){
-    RAM = r;
+void Racunar::setSSD(const SSD s){
+
 }
 
-void Racunar::setProcesor(const char *p){
-    strcpy(procesor, p);
+void Racunar::setMaticna(const Maticna m){
+
 }
 
-void Racunar::setKonektori(const char *k){
-    strcpy(konektori, k);
+void Racunar::setGPU(const Graficka g){
+
 }
 
-void Racunar::setOS(const char *os){
-    strcpy(OS, os);
+void Racunar::setCPU(const Procesor p){
+
 }
 
-void Racunar::setBoja(const char *b){
-    strcpy(boja, b);
+void Racunar::setOS(const string os){
+    OS = os;
 }
 
 void Racunar::setOpticki(const bool o){

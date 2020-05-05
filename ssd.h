@@ -5,11 +5,14 @@
 #include <cstring>
 #include "artikal.h"
 
+enum TipInterfejsa{SATA, PCIE, USB, MSATA, M2};
+
 class SSD : public Artikal{
     private:
-
+        TipInterfejsa interfejs;
+        string format, NANDflash, kontroler;
+        short kapacitet, brzineCitanja, brzinaPisanja, debljina;
     public:
-
 };
 
 

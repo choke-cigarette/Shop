@@ -12,25 +12,25 @@ class Artikal{
     private:
         Slika *slika;
         float cena, ocena;
-        char *proizvodjac, *nazivArtikla;
+        string proizvodjac, nazivArtikla;
         short akcija, brOcena, naStanju;
         bool besplatnaDostava;
         FILE *komentari;
     public:
         Artikal();
-        Artikal(float, char*, char*, short, bool, bool, FILE *);
+        Artikal(float, string, string, short, bool, bool, FILE *);
         Slika* getSlika()const;
         float getCena()const;
         float getOcena()const; //  postavice je neki izmisljeni kupci
-        char* getProizvodjac()const;
+        string getProizvodjac()const;
         short getBrOcena()const;
-        char* getNazivArtikla()const;
+        string getNazivArtikla()const;
         short getAkcija()const;
         void ispisiKomentare()const; //  nece postojati komentari jer nema user interface-a
         bool imaLiNaStanju()const;
         bool imaLiBesplatnuDostavu()const;
-        void setProizvodjac(const char*);
-        void setNaziv(const char*);
+        void setProizvodjac(const string);
+        void setNaziv(const string);
         void setCena(const float);
         void setAkcija(const short);
         void setNaStanju(const short);
@@ -44,23 +44,21 @@ Artikal::Artikal(){
     cena = 0;
     ocena = 0;
     brOcena = 0;
-    proizvodjac = nullptr;
-    nazivArtikla = nullptr;
+    proizvodjac = "";
+    nazivArtikla = "";
     akcija = 0;
     naStanju = false;
     besplatnaDostava = false;
     komentari = nullptr;
 }
 
-Artikal::Artikal(float c, char *p, char *n, short a, bool s, bool d, FILE *f){
+Artikal::Artikal(float c, string p, string n, short a, bool s, bool d, FILE *f){
     slika = new Slika(f);   // nije radilo kao kompozicija : slika(f)
     cena = c;
     ocena = 0;
     brOcena = 0;
-    proizvodjac = new char[strlen(p)];
-    nazivArtikla = new char[strlen(n)];
-    strcpy(proizvodjac, p);
-    strcpy(nazivArtikla, n);
+    proizvodjac = p;
+    nazivArtikla = n;
     akcija = a;
     naStanju = s;
     besplatnaDostava = d;
@@ -84,11 +82,11 @@ float Artikal::getOcena()const{
     return ocena;
 }
 
-char* Artikal::getProizvodjac()const{
+string Artikal::getProizvodjac()const{
     return proizvodjac;
 }
 
-char* Artikal::getNazivArtikla()const{
+string Artikal::getNazivArtikla()const{
     return nazivArtikla;
 }
 
@@ -108,12 +106,12 @@ void Artikal::setCena(const float c){
     cena = c;
 }
 
-void Artikal::setProizvodjac(const char *p){
-    strcpy(proizvodjac, p);
+void Artikal::setProizvodjac(const string p){
+    proizvodjac = p;
 }
 
-void Artikal::setNaziv(const char *n){
-    strcpy(nazivArtikla, n);
+void Artikal::setNaziv(const string n){
+    nazivArtikla = n;
 }
 
 void Artikal::setAkcija(const short a){
