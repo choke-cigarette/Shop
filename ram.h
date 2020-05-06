@@ -27,6 +27,7 @@ class RAM : public Artikal{
         void setFrekvencija(short);
         void setLatencija(short);
         void setVoltaza(float);
+        virtual void ispisiBitno();
 };
 
 RAM::RAM() : Artikal(){
@@ -93,5 +94,26 @@ void RAM::setVoltaza(float v){
     voltaza = v;
 }
 
+void RAM::ispisiBitno(){
+    cout << "\tTip memorije: ";
+    switch(memorija){
+    case _DDR1:
+        cout << "DDR1";
+        break;
+    case _DDR2:
+        cout << "DDR2";
+        break;
+    case _DDR3:
+        cout << "DDR3";
+        break;
+    case _DDR4:
+        cout << "DDR4";
+    }
+    cout << endl;
+    cout << "\tKapacitet: " << kapacitet << endl;
+    cout << "\tMaksimalna frekvencija: " << maksimalnaFrekvencija << endl;
+    cout << "\tLatencija: " << latencija << endl;
+    cout << "\tVoltaza: " << voltaza << endl;
+}
 
 #endif // RAM_H_INCLUDED

@@ -37,6 +37,7 @@ class Artikal{
         void setBesplatnaDostava(const bool);
         bool kupi();
         double dodajOcenu(double);
+        virtual void ispisiBitno() = 0;
 };
 
 Artikal::Artikal(){

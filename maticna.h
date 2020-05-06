@@ -52,6 +52,7 @@ class Maticna : public Artikal{
         string getInterniKonektori()const;
         string getBIOS()const;
         string getOstalo()const;
+        virtual void ispisiBitno();
 };
 
 Maticna::Maticna() : Artikal(){
@@ -252,5 +253,13 @@ string Maticna::getOstalo()const{
     return ostalo;
 }
 
+void Maticna::ispisiBitno(){
+    cout << "\tFormat ploce: " << ((formatPloce == ATX) ? "ATX" : "EATX") << endl;
+    cout << "\tPodnozje: " << podnozje << endl;
+    cout << "\tCipset: " << cipset << endl;
+    cout << "\tIntegrisana graficka karta: " << integrisanaGrafickaKarta << endl;
+    cout << "\tMrezna karta: " << mreznaKarta << endl;
+    cout << "\tZvucna karta: " << zvucnaKarta << endl;
+}
 
 #endif // MATICNA_H_INCLUDED

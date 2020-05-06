@@ -50,6 +50,7 @@ class Graficka : public Artikal{
         void setHDMI(short);
         void setDisplayPort(short);
         void setMinimalnoNapajanje(short);
+        virtual void ispisiBitno();
 };
 
 Graficka::Graficka() : Artikal(){
@@ -226,6 +227,52 @@ void Graficka::setDisplayPort(short a){
 
 void Graficka::setMinimalnoNapajanje(short a){
     minimalnoNapajanje = a;
+}
+
+void Graficka::ispisiBitno(){
+    cout << "\tTip graficke memorije: ";
+    switch(tipMemorije){
+    case DDR:
+        cout << "DDR1";
+        break;
+    case DDR2:
+        cout << "DDR2";
+        break;
+    case GDDR3:
+        cout << "GDDR3";
+        break;
+    case GDDR4:
+        cout << "GDDR4";
+        break;
+    case GDDR5:
+        cout << "GDDR5";
+        break;
+    case GDDR5X:
+        cout << "GDDR5X";
+        break;
+    case GDDR6:
+        cout << "GDDR6";
+    }
+    cout << endl;
+    cout << "\tTip hladjenja: ";
+    switch(hladjenje){
+    case PASIVNO:
+        cout << "pasivno";
+        break;
+    case AKTIVNO:
+        cout << "aktivno";
+        break;
+    case LIKVIDNO:
+        cout << "likvidno";
+        break;
+    case HIBRIDNO:
+        cout << "hibridno";
+    }
+    cout << endl;
+    cout << "\tInterfejs: " << interfejs << endl;
+    cout << "\tGPU: " << GPU<< endl;
+    cout << "\tBrzina memorije: " << brzinaMemorije<< endl;
+    cout << "\tBrzina GPU-a: " << brzinaGPU<< endl;
 }
 
 #endif // GRAFICKA_H_INCLUDED

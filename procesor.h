@@ -36,6 +36,7 @@ class Procesor : public Artikal{
         void setL3Kes(short);
         void setRadnaFrekvencija(float);
         void setTurboFrekvencija(float);
+        virtual void ispisiBitno();
 };
 
 Procesor::Procesor() : Artikal(){
@@ -156,6 +157,14 @@ void Procesor::setRadnaFrekvencija(float r){
 
 void Procesor::setTurboFrekvencija(float t){
     turboFrekvencija = t;
+}
+
+void Procesor::ispisiBitno(){
+    cout << "\tPodnozje: " << podnozje<< endl;
+    cout << "\tBroj jezgara: " << brojJezgara<< endl;
+    cout << "\tThreads: " << threads << endl;
+    cout << "\tRadna Frekvencija: " << radnaFrekvencija << endl;
+    cout << "\tTurbo Frekvencija: " << turboFrekvencija << endl;
 }
 
 #endif // PROCESOR_H_INCLUDED

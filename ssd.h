@@ -11,9 +11,152 @@ class SSD : public Artikal{
     private:
         TipInterfejsa interfejs;
         string format, NANDflash, kontroler;
-        short kapacitet, brzineCitanja, brzinaPisanja, debljina;
+        short kapacitet, brzinaCitanja, brzinaPisanja, debljina;
     public:
+        SSD();
+        SSD(TipInterfejsa, string, string, string, short, short, short, short, float, string, string, short, bool, bool, FILE *);
+        SSD(SSD&);
+        TipInterfejsa getInterfejs()const;
+		void setInterfejs(TipInterfejsa);
+		string getFormat()const;
+		void setFormat(string);
+		string getNANDflash()const;
+		void setNANDflash(string);
+		string getKontroler()const;
+		void setKontroler(string);
+		short getKapacitet()const;
+		void setKapacitet(short);
+		short getBrzinaCitanja()const;
+		void setBrzinaCitanja(short);
+		short getBrzinaPisanja()const;
+		void setBrzinaPisanja(short);
+		short getDebljina()const;
+		void setDebljina(short);
+        virtual void ispisiBitno();
 };
 
+SSD::SSD() : Artikal(){
+    interfejs = SATA;
+    format = "";
+    NANDflash = "";
+    kontroler = "";
+    kapacitet = 0;
+    brzinaCitanja = 0;
+    brzinaPisanja = 0;
+    debljina = 0;
+}
+
+SSD::SSD(TipInterfejsa i, string fo, string na, string k, short ka, short bc, short bp, short de, float c, string m, string n, short a, bool s, bool d, FILE *f) : Artikal(c, m, n, a, s, d, f){
+    interfejs = i;
+    format = fo;
+    NANDflash = na;
+    kontroler = k;
+    kapacitet = ka;
+    brzinaCitanja = bc;
+    brzinaPisanja = bp;
+    debljina = de;
+}
+
+SSD::SSD(SSD &s) : Artikal(s.getCena(), s.getProizvodjac(), s.getNazivArtikla(), s.getAkcija(), s.imaLiNaStanju(), s.imaLiBesplatnuDostavu(), s.getSlika()->getFajl()){
+    interfejs = s.interfejs;
+    format = s.format;
+    NANDflash = s.NANDflash;
+    kontroler = s.kontroler;
+    kapacitet = s.kapacitet;
+    brzinaCitanja = s.brzinaCitanja;
+    brzinaPisanja = s.brzinaPisanja;
+    debljina = s.debljina;
+}
+
+TipInterfejsa SSD::getInterfejs()const{
+	return interfejs;
+}
+
+void SSD::setInterfejs(TipInterfejsa a){
+	interfejs = a;
+}
+string SSD::getFormat()const{
+	return format;
+}
+
+void SSD::setFormat(string a){
+	format = a;
+}
+
+string SSD::getNANDflash()const{
+	return NANDflash;
+}
+
+void SSD::setNANDflash(string a){
+	NANDflash = a;
+}
+
+string SSD::getKontroler()const{
+	return kontroler;
+}
+
+void SSD::setKontroler(string a){
+	kontroler = a;
+}
+
+short SSD::getKapacitet()const{
+	return kapacitet;
+}
+
+void SSD::setKapacitet(short a){
+	kapacitet = a;
+}
+
+short SSD::getBrzinaCitanja()const{
+	return brzinaCitanja;
+}
+
+void SSD::setBrzinaCitanja(short a){
+	brzinaCitanja = a;
+}
+
+short SSD::getBrzinaPisanja()const{
+	return brzinaPisanja;
+}
+
+void SSD::setBrzinaPisanja(short a){
+	brzinaPisanja = a;
+}
+
+short SSD::getDebljina()const{
+	return debljina;
+}
+
+void SSD::setDebljina(short a){
+	debljina = a;
+}
+
+void SSD::ispisiBitno(){
+    cout << "\tTip interfejsa: ";
+    switch(interfejs){
+    case SATA:
+        cout << "SATA";
+        break;
+    case PCIE:
+        cout << "PCI-E";
+        break;
+    case USB:
+        cout << "USB";
+        break;
+    case MSATA:
+        cout << "mSATA";
+        break;
+    case M2:
+        cout << "M.2";
+    }
+    cout << endl;
+    cout << "\tFormat: " << format << endl;
+    cout << "\tNANDflash: " << NANDflash << endl;
+    cout << "\tKontroler: " << kontroler << endl;
+    cout << "\tKapacitet: " << kapacitet << endl;
+    cout << "\tBrzina citanja: " << brzinaCitanja << endl;
+    cout << "\tBrzina pisanja: " << brzinaPisanja << endl;
+    cout << "\tDebljina: " << debljina << endl;
+}
 
 #endif // SSD_H_INCLUDED
