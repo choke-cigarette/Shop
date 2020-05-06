@@ -26,12 +26,12 @@ class Racunar : public Artikal{
     public:
         Racunar();
         Racunar(RAM, HDD, SSD, Maticna, Graficka, Procesor, string, bool, float, string, string, short, bool, bool, FILE*);
-        RAM getRAM();
-        HDD getHDD();
-        SSD getSSD();
-        Maticna getMaticna();
-        Graficka getGraficka();
-        Procesor getProcesor();
+        RAM* getRAM();
+        HDD* getHDD();
+        SSD* getSSD();
+        Maticna* getMaticna();
+        Graficka* getGraficka();
+        Procesor* getProcesor();
         string getOS()const;
         bool daLiImaOptickiUredjaj()const;
         void setRAM(const RAM&);
@@ -57,28 +57,28 @@ float c, string m, string n, short a, bool s, bool d, FILE *f)
     optickiUredjaj = opt;
 }
 
-RAM Racunar::getRAM(){
-    return ram;
+RAM* Racunar::getRAM(){
+    return &ram;
 }
 
-HDD Racunar::getHDD(){
-    return hdd;
+HDD* Racunar::getHDD(){
+    return &hdd;
 }
 
-SSD Racunar::getSSD(){
-    return ssd;
+SSD* Racunar::getSSD(){
+    return &ssd;
 }
 
-Maticna Racunar::getMaticna(){
-    return maticna;
+Maticna* Racunar::getMaticna(){
+    return &maticna;
 }
 
-Graficka Racunar::getGraficka(){
-    return gpu;
+Graficka* Racunar::getGraficka(){
+    return &gpu;
 }
 
-Procesor Racunar::getProcesor(){
-    return cpu;
+Procesor* Racunar::getProcesor(){
+    return &cpu;
 }
 
 string Racunar::getOS()const{
