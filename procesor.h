@@ -37,6 +37,7 @@ class Procesor : public Artikal{
         void setRadnaFrekvencija(float);
         void setTurboFrekvencija(float);
         virtual void ispisiBitno();
+        Procesor& operator=(const Procesor&);
 };
 
 Procesor::Procesor() : Artikal(){
@@ -165,6 +166,30 @@ void Procesor::ispisiBitno(){
     cout << "\tThreads: " << threads << endl;
     cout << "\tRadna Frekvencija: " << radnaFrekvencija << endl;
     cout << "\tTurbo Frekvencija: " << turboFrekvencija << endl;
+}
+
+Procesor& Procesor::operator=(const Procesor &p){
+    getSlika()->setFajl(p.getSlika()->getFajl());
+    getSlika()->setProsla(p.getSlika()->getProsla());
+    getSlika()->setSledeca(p.getSlika()->getSledeca());
+    setCena(p.getCena());
+    setOcena(p.getOcena());
+    setBrOcena(p.getBrOcena());
+    setProizvodjac(p.getProizvodjac());
+    setNaziv(p.getNazivArtikla());
+    setAkcija(p.getAkcija());
+    setNaStanju(p.imaLiNaStanju());
+    setBesplatnaDostava(p.imaLiBesplatnuDostavu());
+    podnozje = p.podnozje;
+    l2Kes = p.l2Kes;
+    integrisanaGraficka = p.integrisanaGraficka;
+    brojJezgara = p.brojJezgara;
+    threads = p.threads;
+    tehnologijaIzrade = p.tehnologijaIzrade;
+    TDP = p.TDP;
+    l3Kes = p.l3Kes;
+    radnaFrekvencija = p.radnaFrekvencija;
+    turboFrekvencija = p.turboFrekvencija;
 }
 
 #endif // PROCESOR_H_INCLUDED

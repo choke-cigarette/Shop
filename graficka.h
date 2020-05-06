@@ -51,6 +51,7 @@ class Graficka : public Artikal{
         void setDisplayPort(short);
         void setMinimalnoNapajanje(short);
         virtual void ispisiBitno();
+        Graficka& operator=(const Graficka&);
 };
 
 Graficka::Graficka() : Artikal(){
@@ -273,6 +274,35 @@ void Graficka::ispisiBitno(){
     cout << "\tGPU: " << GPU<< endl;
     cout << "\tBrzina memorije: " << brzinaMemorije<< endl;
     cout << "\tBrzina GPU-a: " << brzinaGPU<< endl;
+}
+
+Graficka& Graficka::operator=(const Graficka &g){
+    getSlika()->setFajl(g.getSlika()->getFajl());
+    getSlika()->setProsla(g.getSlika()->getProsla());
+    getSlika()->setSledeca(g.getSlika()->getSledeca());
+    setCena(g.getCena());
+    setOcena(g.getOcena());
+    setBrOcena(g.getBrOcena());
+    setProizvodjac(g.getProizvodjac());
+    setNaziv(g.getNazivArtikla());
+    setAkcija(g.getAkcija());
+    setNaStanju(g.imaLiNaStanju());
+    setBesplatnaDostava(g.imaLiBesplatnuDostavu());
+    tipMemorije = g.tipMemorije;
+    hladjenje = g.hladjenje;
+    interfejs = g.interfejs;
+    GPU = g.GPU;
+    konektor = g.konektor;
+    kolicinaMemorije = g.kolicinaMemorije;
+    magistrala = g.magistrala;
+    brzinaMemorije = g.brzinaMemorije;
+    brzinaGPU = g.brzinaGPU;
+    streamProcesori = g.streamProcesori;
+    VGA = g.VGA;
+    DVI = g.DVI;
+    HDMI = g.HDMI;
+    displayPort = g.displayPort;
+    minimalnoNapajanje = g.minimalnoNapajanje;
 }
 
 #endif // GRAFICKA_H_INCLUDED

@@ -32,6 +32,7 @@ class HDD : public Artikal{
 		short getBafer()const;
 		void setBafer(short);
 		virtual void ispisiBitno();
+		HDD& operator=(const HDD&);
 };
 
 HDD::HDD() : Artikal(){
@@ -129,4 +130,23 @@ void HDD::ispisiBitno(){
     cout << "\tBafer: " << bafer << endl;
 }
 
+HDD& HDD::operator=(const HDD &h){
+    getSlika()->setFajl(h.getSlika()->getFajl());
+    getSlika()->setProsla(h.getSlika()->getProsla());
+    getSlika()->setSledeca(h.getSlika()->getSledeca());
+    setCena(h.getCena());
+    setOcena(h.getOcena());
+    setBrOcena(h.getBrOcena());
+    setProizvodjac(h.getProizvodjac());
+    setNaziv(h.getNazivArtikla());
+    setAkcija(h.getAkcija());
+    setNaStanju(h.imaLiNaStanju());
+    setBesplatnaDostava(h.imaLiBesplatnuDostavu());
+    tip = h.tip;
+    konekcija = h.konekcija;
+    format = h.format;
+    kapacitet = h.kapacitet;
+    brojObrtaja = h.brojObrtaja;
+    bafer = h.bafer;
+}
 #endif // HDD_H_INCLUDED

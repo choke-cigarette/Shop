@@ -35,6 +35,8 @@ class Artikal{
         void setAkcija(const short);
         void setNaStanju(const short);
         void setBesplatnaDostava(const bool);
+        void setOcena(const float); //nevoljno ;(
+        void setBrOcena(const short);
         bool kupi();
         double dodajOcenu(double);
         virtual void ispisiBitno() = 0;
@@ -125,6 +127,14 @@ void Artikal::setNaStanju(const short s){
 
 void Artikal::setBesplatnaDostava(const bool d){
     besplatnaDostava = d;
+}
+
+void Artikal::setOcena(const float o){
+    ocena = o;
+}
+
+void Artikal::setBrOcena(const short b){
+    brOcena = b;
 }
 
 bool Artikal::kupi(){

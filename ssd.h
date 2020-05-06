@@ -33,6 +33,7 @@ class SSD : public Artikal{
 		short getDebljina()const;
 		void setDebljina(short);
         virtual void ispisiBitno();
+        SSD& operator=(const SSD&);
 };
 
 SSD::SSD() : Artikal(){
@@ -157,6 +158,28 @@ void SSD::ispisiBitno(){
     cout << "\tBrzina citanja: " << brzinaCitanja << endl;
     cout << "\tBrzina pisanja: " << brzinaPisanja << endl;
     cout << "\tDebljina: " << debljina << endl;
+}
+
+SSD& SSD::operator=(const SSD &s){
+    getSlika()->setFajl(s.getSlika()->getFajl());
+    getSlika()->setProsla(s.getSlika()->getProsla());
+    getSlika()->setSledeca(s.getSlika()->getSledeca());
+    setCena(s.getCena());
+    setOcena(s.getOcena());
+    setBrOcena(s.getBrOcena());
+    setProizvodjac(s.getProizvodjac());
+    setNaziv(s.getNazivArtikla());
+    setAkcija(s.getAkcija());
+    setNaStanju(s.imaLiNaStanju());
+    setBesplatnaDostava(s.imaLiBesplatnuDostavu());
+    interfejs = s.interfejs;
+    format = s.format;
+    NANDflash = s.NANDflash;
+    kontroler = s.kontroler;
+    kapacitet = s.kapacitet;
+    brzinaCitanja = s.brzinaCitanja;
+    brzinaPisanja = s.brzinaPisanja;
+    debljina = s.debljina;
 }
 
 #endif // SSD_H_INCLUDED

@@ -28,6 +28,7 @@ class RAM : public Artikal{
         void setLatencija(short);
         void setVoltaza(float);
         virtual void ispisiBitno();
+        RAM& operator=(const RAM&);
 };
 
 RAM::RAM() : Artikal(){
@@ -114,6 +115,25 @@ void RAM::ispisiBitno(){
     cout << "\tMaksimalna frekvencija: " << maksimalnaFrekvencija << endl;
     cout << "\tLatencija: " << latencija << endl;
     cout << "\tVoltaza: " << voltaza << endl;
+}
+
+RAM& RAM::operator=(const RAM &r){
+    getSlika()->setFajl(r.getSlika()->getFajl());
+    getSlika()->setProsla(r.getSlika()->getProsla());
+    getSlika()->setSledeca(r.getSlika()->getSledeca());
+    setCena(r.getCena());
+    setOcena(r.getOcena());
+    setBrOcena(r.getBrOcena());
+    setProizvodjac(r.getProizvodjac());
+    setNaziv(r.getNazivArtikla());
+    setAkcija(r.getAkcija());
+    setNaStanju(r.imaLiNaStanju());
+    setBesplatnaDostava(r.imaLiBesplatnuDostavu());
+    memorija = r.memorija;
+    kapacitet = r.kapacitet;
+    maksimalnaFrekvencija = r.maksimalnaFrekvencija;
+    latencija = r.latencija;
+    voltaza = r.voltaza;
 }
 
 #endif // RAM_H_INCLUDED

@@ -34,14 +34,14 @@ class Racunar : public Artikal{
         Procesor getProcesor();
         string getOS()const;
         bool daLiImaOptickiUredjaj()const;
-        void setRAM(const RAM);
-        void setHDD(const HDD);
-        void setSSD(const SSD);
-        void setMaticna(const Maticna);
-        void setGPU(const Graficka);
-        void setCPU(const Procesor);
-        void setOS(const string);
-        void setOpticki(const bool);
+        void setRAM(const RAM&);
+        void setHDD(const HDD&);
+        void setSSD(const SSD&);
+        void setMaticna(const Maticna&);
+        void setGPU(const Graficka&);
+        void setCPU(const Procesor&);
+        void setOS(const string&);
+        void setOpticki(const bool&);
         virtual bool gamingApproved() = 0;
 };
 
@@ -89,35 +89,35 @@ bool Racunar::daLiImaOptickiUredjaj()const{
     return optickiUredjaj;
 }
 
-void Racunar::setRAM(const RAM r){
-
+void Racunar::setRAM(const RAM &r){
+    ram = r;
 }
 
-void Racunar::setHDD(const HDD h){
-
+void Racunar::setHDD(const HDD &h){
+    hdd = h;
 }
 
-void Racunar::setSSD(const SSD s){
-
+void Racunar::setSSD(const SSD &s){
+    ssd = s;
 }
 
-void Racunar::setMaticna(const Maticna m){
-
+void Racunar::setMaticna(const Maticna &m){
+    maticna = m;
 }
 
-void Racunar::setGPU(const Graficka g){
-
+void Racunar::setGPU(const Graficka &g){
+    gpu = g;
 }
 
-void Racunar::setCPU(const Procesor p){
-
+void Racunar::setCPU(const Procesor &p){
+    cpu = p;
 }
 
-void Racunar::setOS(const string os){
+void Racunar::setOS(const string &os){
     OS = os;
 }
 
-void Racunar::setOpticki(const bool o){
+void Racunar::setOpticki(const bool &o){
     optickiUredjaj = o;
 }
 

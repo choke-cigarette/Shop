@@ -53,6 +53,7 @@ class Maticna : public Artikal{
         string getBIOS()const;
         string getOstalo()const;
         virtual void ispisiBitno();
+        Maticna& operator=(const Maticna&);
 };
 
 Maticna::Maticna() : Artikal(){
@@ -260,6 +261,37 @@ void Maticna::ispisiBitno(){
     cout << "\tIntegrisana graficka karta: " << integrisanaGrafickaKarta << endl;
     cout << "\tMrezna karta: " << mreznaKarta << endl;
     cout << "\tZvucna karta: " << zvucnaKarta << endl;
+}
+
+Maticna& Maticna::operator=(const Maticna &m){
+    getSlika()->setFajl(m.getSlika()->getFajl());
+    getSlika()->setProsla(m.getSlika()->getProsla());
+    getSlika()->setSledeca(m.getSlika()->getSledeca());
+    setCena(m.getCena());
+    setOcena(m.getOcena());
+    setBrOcena(m.getBrOcena());
+    setProizvodjac(m.getProizvodjac());
+    setNaziv(m.getNazivArtikla());
+    setAkcija(m.getAkcija());
+    setNaStanju(m.imaLiNaStanju());
+    setBesplatnaDostava(m.imaLiBesplatnuDostavu());
+    formatPloce = m.formatPloce;
+    podnozje = m.podnozje;
+    cipset = m.cipset;
+    podrzaniProcesori = m.podrzaniProcesori;
+    podrzanaMemorija = m.podrzanaMemorija;
+    memorija = m.memorija;
+    integrisanaGrafickaKarta = m.integrisanaGrafickaKarta;
+    multiGPUPodrska = m.multiGPUPodrska;
+    slotoviZaProsirenje = m.slotoviZaProsirenje;
+    storage = m.storage;
+    mreznaKarta = m.mreznaKarta;
+    zvucnaKarta = m.zvucnaKarta;
+    USB = m.USB;
+    konektori = m.konektori;
+    interniKonektori = m.interniKonektori;
+    BIOS, m.BIOS;
+    ostalo = m.ostalo;
 }
 
 #endif // MATICNA_H_INCLUDED

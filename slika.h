@@ -11,15 +11,15 @@ class Slika{
         FILE *fajl;
     public:
         Slika();
-        Slika(FILE *&);
-        Slika(Slika *&);
+        Slika(FILE *);
+        Slika(Slika *);
         Slika* getProsla()const;
         Slika* getSledeca()const;
         FILE* getFajl()const;
-        void setProsla(Slika *&);
-        void setSledeca(Slika *&);
-        void setFajl(FILE *&);
-        void dodajSliku(FILE *&);
+        void setProsla(Slika *);
+        void setSledeca(Slika *);
+        void setFajl(FILE *);
+        void dodajSliku(FILE *);
         void izbrisiSliku();
 };
 
@@ -29,13 +29,13 @@ Slika::Slika(){
     fajl = nullptr;
 }
 
-Slika::Slika(FILE *&f){
+Slika::Slika(FILE *f){
     prosla = this;
     sledeca = nullptr;
     fajl = f;
 }
 
-Slika::Slika(Slika *&s){
+Slika::Slika(Slika *s){
     prosla = new Slika;
     sledeca = new Slika;
     prosla = s->prosla;
@@ -55,19 +55,19 @@ FILE* Slika::getFajl()const{
     return fajl;
 }
 
-void Slika::setProsla(Slika *&p){
+void Slika::setProsla(Slika *p){
     prosla = p;
 }
 
-void Slika::setSledeca(Slika *&s){
+void Slika::setSledeca(Slika *s){
     sledeca = s;
 }
 
-void Slika::setFajl(FILE *&f){
+void Slika::setFajl(FILE *f){
     fajl = f;
 }
 
-void Slika::dodajSliku(FILE *&f){
+void Slika::dodajSliku(FILE *f){
     Slika *pok = this;
     while(pok->sledeca != nullptr){
         pok = pok->sledeca;
