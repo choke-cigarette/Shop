@@ -45,7 +45,7 @@ Slusalice::Slusalice() : Artikal(){
 
 Slusalice::Slusalice(TipSistema si, string fr, string p, short pr, short o, short i, bool mi,
 float c, string m, string n, short a, bool s, bool d, FILE *f) : Artikal(c, m, n, a, s, d, f){
-    sistem = s;
+    sistem = si;
     frekventniOdziv = fr;
     povezivanje = p;
     precnikZvucnika = pr;

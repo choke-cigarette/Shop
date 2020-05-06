@@ -14,7 +14,7 @@ using namespace std;
 
 
 class Racunar : public Artikal{
-    private:
+    protected:
         RAM ram;
         HDD hdd;
         SSD ssd;
