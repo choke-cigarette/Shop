@@ -17,7 +17,12 @@ class Admin : Korisnik{
         Admin();
         Admin(Radnja&, FILE *, FILE *);
         Admin(Admin&);
-        Artikal* getArtikal(List<Artikal>, short);
+        Radnja* getRadnoMesto()const;
+		void setRadnoMesto(Radnja*);
+		FILE* getPodaci()const;
+		void setPodaci(FILE*);
+		FILE* getIstorijaPromena()const;
+		void setIstorijaPromena(FILE*);
 };
 
 Admin::Admin(){
@@ -39,5 +44,28 @@ Admin::Admin(Admin &a){
 }
 
 
+Radnja* Admin::getRadnoMesto()const{
+	return radnoMesto;
+}
+
+void Admin::setRadnoMesto(Radnja* a){
+	radnoMesto = a;
+}
+
+FILE* Admin::getPodaci()const{
+	return podaci;
+}
+
+void Admin::setPodaci(FILE* a){
+	podaci = a;
+}
+
+FILE* Admin::getIstorijaPromena()const{
+	return istorijaPromena;
+}
+
+void Admin::setIstorijaPromena(FILE* a){
+	istorijaPromena = a;
+}
 
 #endif // ADMIN_H_INCLUDED

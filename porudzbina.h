@@ -76,4 +76,10 @@ Porudzbina& Porudzbina::operator=(const Porudzbina &p){
     datum = p.datum;
 }
 
+ostream& operator<<(ostream &o, const Porudzbina &p){
+    o << "\tBroj narucenih artikala: " << p.getBrojKupljenih() << endl;
+    o << "\tAdresa na koju stizu: " << p.getAdresa() << endl;
+    o << "\tDatum kupovine: " << p.getDatum() << endl;
+}
+
 #endif // PORUDZBINA_H_INCLUDED

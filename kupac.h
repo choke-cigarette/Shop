@@ -9,7 +9,7 @@ using namespace std;
 #include "list.hpp"
 
 
-class Kupac : Korisnik{
+class Kupac : public Korisnik{
     private:
         string telefon;
         float novacNaRaspolaganju;
