@@ -195,4 +195,28 @@ void Televizor::ispisiBitno(){
     cout << "\tDigitalni tjuner: " << digitalniTjuner << endl;
 }
 
+ostream& operator<<(ostream &o, const Televizor &t){
+    o << endl << "\tNaziv televizora: " << t.getNazivArtikla() << endl;
+    o << "\tCena televizora: " << t.getCena() << "rsd" << endl;
+    o << "\tAkcija: " << t.getAkcija() << "%" << endl;
+    o << "\tTip ekrana: ";
+    switch(t.getTip()){
+    case LCD:
+        o << "LCD";
+        break;
+    case PLASMA:
+        o << "PLASMA";
+        break;
+    case OLED:
+        o << "OLED";
+        break;
+    case LED:
+        o << "LED";
+    }
+    o << endl;
+    o << "\tDijagonala ekrana: " << t.getDijagonala() << endl;
+    o << "\tRezolucija: " << t.getRezolucija() << endl;
+    o << "\tDigitalni tjuner: " << t.getDigitalniTjuner() << endl;
+}
+
 #endif // TELEVIZOR_H_INCLUDED

@@ -82,4 +82,14 @@ bool Desktop::gamingApproved(){
     return false;
 }
 
+ostream& operator<<(ostream &o, const Desktop &d){
+    o << endl << "\tNaziv desktopa: " << d.getNazivArtikla() << endl;
+    o << "\tCena desktopa: " << d.getCena() << "rsd" << endl;
+    o << "\tAkcija: " << d.getAkcija() << "%" << endl;
+    o << "\tKuciste: " << d.getKuciste()<< endl;
+    o << "\tNapajanje: " << d.getNapajanje() << endl;
+    o << "\tSvetla: " << d.getSvetla() << endl;
+    return o;
+}
+
 #endif // DESKTOP_H_INCLUDED

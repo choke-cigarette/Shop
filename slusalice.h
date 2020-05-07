@@ -9,7 +9,7 @@ using namespace std;
 enum TipSistema{MONO, STEREO};
 
 class Slusalice : public Artikal{
-    private:
+    protected:
         TipSistema sistem;
         string frekventniOdziv, povezivanje;
         short precnikZvucnika, osetljivost, impedansa;
